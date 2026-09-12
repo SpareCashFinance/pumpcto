@@ -1,0 +1,57 @@
+"use client";
+
+import { useState } from "react";
+import { HouseButton } from "@/components/ui/house-button";
+import { Mascot } from "./Mascot";
+
+const tricks = [
+  { id: "sit", label: "Sit", line: "The chart sat. It was already sitting. Still a CTO." },
+  { id: "stay", label: "Stay", line: "It did not move. That is the whole community thesis." },
+  { id: "rollover", label: "Roll over", line: "One revolution. Dev out. Holders still here." },
+  { id: "fetch", label: "Fetch", line: "It went for the PUMP. Dignity remains intact-ish." },
+  { id: "stack", label: "Stack", line: "Rewards appeared. The chat approved this meeting." },
+] as const;
+
+type TrickId = (typeof tricks)[number]["id"] | "idle";
+
+export function TrainYourRock() {
+  const [trick, setTrick] = useState<TrickId>("idle");
+  const [line, setLine] = useState("Teach the rock nothing. It already does something.");
+
+  return (
+    <section id="train" className="section pt-0">
+      <div className="glass-panel rounded-[32px] p-6 sm:p-10">
+        <p className="kicker">Optional enrichment</p>
+        <h2 className="display mt-3 text-6xl text-white sm:text-7xl">Train the tape</h2>
+        <p className="mt-3 max-w-xl text-sm text-[var(--dim)]">
+          A shareable parlor trick. It does not affect rewards, eligibility, or the official market.
+        </p>
+        <div className="mt-8 grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <Mascot
+            size="stage"
+            trick={trick === "idle" ? "idle" : trick}
+            stacked={trick === "stack" ? 3 : 0}
+            dropping={trick === "fetch"}
+          />
+          <div>
+            <div className="flex flex-wrap gap-2">
+              {tricks.map((item) => (
+                <HouseButton
+                  key={item.id}
+                  variant={trick === item.id ? "primary" : "ghost"}
+                  onClick={() => {
+                    setTrick(item.id);
+                    setLine(item.line);
+                  }}
+                >
+                  {item.label}
+                </HouseButton>
+              ))}
+            </div>
+            <p className="serif mt-6 text-2xl text-[var(--cream)]">{line}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,24 @@
+import { HouseButton } from "@/components/ui/house-button";
+
+export default function NotFound() {
+  return (
+    <main className="relative z-1 mx-auto flex min-h-screen w-[min(720px,calc(100%-1.5rem))] flex-col items-center justify-center py-20 text-center">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/mascot.jpg"
+        alt="Pump token mark looking unimpressed"
+        width={280}
+        height={280}
+        className="mb-8 aspect-square max-w-[60vw] rounded-full border border-[rgba(247,147,26,0.35)] bg-[#060a12] object-contain p-[12%]"
+      />
+      <p className="kicker">404 · Chart not found</p>
+      <h1 className="display mt-3 text-6xl text-white">This coin wandered off.</h1>
+      <p className="serif mt-4 max-w-md text-xl text-[var(--cream)]">
+        No exhibit in this drawer. The official market is still one click away.
+      </p>
+      <HouseButton variant="primary" href="/" className="mt-8">
+        Take me home
+      </HouseButton>
+    </main>
+  );
+}
