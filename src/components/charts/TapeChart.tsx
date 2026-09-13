@@ -49,16 +49,53 @@ export function TapeChart({ history }: { history: RewardEvent[] }) {
       lineWidth: 2,
     });
 
-    const points = history
-      .filter((row) => row.at && row.amount != null)
-      .map((row) => ({
-        time: Math.floor(new Date(row.at as string).getTime() / 1000) as never,
-        value: row.amount as number,
-      }))
-      .sort((a, b) => Number(a.time) - Number(b.time));
+    const merged = new Map<number, number>();
+    for (const row of history) {
+      if (!row.at || row.amount == null || !Number.isFinite(row.amount)) continue;
+      const time = Math.floor(new Date(row.at).getTime() / 1000);
+      if (!Number.isFinite(time) || time <= 0) continue;
+      merged.set(time, (merged.get(time) ?? 0) + row.amount);
+    }
+    const points = [...merged.entries()]
+      .sort((a, b) => a[0] - b[0])
+      .map(([time, value]) => ({ time: time as never, value }));
 
-    if (points.length > 0) series.setData(points);
-    chart.timeScale().fitContent();
+    // #region agent log
+    fetch("http://127.0.0.1:7447/ingest/7261716d-045c-4378-bc38-b41af16803cc", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "f3f691" },
+      body: JSON.stringify({
+        sessionId: "f3f691",
+        runId: "post-fix",
+        hypothesisId: "D",
+        location: "TapeChart.tsx:points",
+        message: "sanitized chart points",
+        data: { raw: history.length, unique: points.length },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion
+
+    try {
+      if (points.length > 0) series.setData(points);
+      chart.timeScale().fitContent();
+    } catch (error) {
+      // #region agent log
+      fetch("http://127.0.0.1:7447/ingest/7261716d-045c-4378-bc38-b41af16803cc", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "f3f691" },
+        body: JSON.stringify({
+          sessionId: "f3f691",
+          runId: "post-fix",
+          hypothesisId: "D",
+          location: "TapeChart.tsx:setData",
+          message: "chart setData failed",
+          data: { error: String(error) },
+          timestamp: Date.now(),
+        }),
+      }).catch(() => {});
+      // #endregion
+    }
 
     const resize = () => chart.applyOptions({ width: node.clientWidth });
     resize();
