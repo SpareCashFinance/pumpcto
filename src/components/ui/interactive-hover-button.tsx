@@ -10,7 +10,7 @@ export function InteractiveHoverButton({
   ...props
 }: React.ButtonHTMLAttributes<HTMLButtonElement> & { href?: string }) {
   const classes = cn(
-    "group relative inline-flex h-11 cursor-pointer items-center overflow-hidden rounded-full border border-[rgba(232,210,176,0.22)] bg-[rgba(12,19,32,0.55)] px-6 text-sm font-semibold text-[var(--cream)] backdrop-blur-xl",
+    "group relative inline-flex h-11 cursor-pointer items-center overflow-hidden rounded-full border border-[rgba(134,239,172,0.22)] bg-[rgba(10,18,14,0.55)] px-6 text-sm font-semibold text-[var(--cream)] backdrop-blur-xl",
     className,
   );
   const inner = (
@@ -19,7 +19,7 @@ export function InteractiveHoverButton({
         <span className="size-2 rounded-full bg-[var(--orange)]" />
         {children}
       </span>
-      <span className="absolute inset-0 z-10 flex translate-x-8 items-center justify-center gap-2 bg-[var(--orange)] text-[#1a0f04] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+      <span className="absolute inset-0 z-10 flex translate-x-8 items-center justify-center gap-2 bg-[var(--orange)] text-[#052e16] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
         {children}
         <ArrowRight className="size-4" />
       </span>

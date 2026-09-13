@@ -52,7 +52,7 @@ export function PriceTape({ initial }: { initial: PriceTapeSnapshot }) {
   const tape = usePriceTape(initial);
 
   return (
-    <div className="price-tape overflow-hidden border-b border-[rgba(232,210,176,0.12)] bg-[#070b12]/95">
+    <div className="price-tape overflow-hidden border-b border-[rgba(134,239,172,0.12)] bg-[#050806]/95">
       <div className="price-tape-track">
         <TapeSequence tape={tape} />
         <TapeSequence tape={tape} />

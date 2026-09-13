@@ -37,7 +37,7 @@ export function SwapToast({
         initial={{ opacity: 0, y: 16, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 12, scale: 0.98 }}
-        className="desk-sheet fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-[80] w-[min(22rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-white/10 bg-[#0c1320]/72 p-3.5 shadow-[0_24px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl"
+        className="desk-sheet fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-[80] w-[min(22rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-white/10 bg-[#0a120e]/72 p-3.5 shadow-[0_24px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl"
       >
         <div className="flex items-start gap-3">
           <span className="mt-0.5 inline-flex size-8 items-center justify-center rounded-full bg-emerald-400/15 text-sm text-emerald-300">

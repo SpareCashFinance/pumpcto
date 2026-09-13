@@ -31,8 +31,8 @@ export function TokenDetails() {
     <section id="tokenomics" className="section">
       <p className="kicker">The filing</p>
       <h2 className="display mt-3 text-6xl text-white sm:text-8xl">Facts, not folklore.</h2>
-      <Card className="mt-8 overflow-hidden border-[rgba(232,210,176,0.14)] bg-[#0c1320]/70">
-        <dl className="divide-y divide-[rgba(232,210,176,0.08)]">
+      <Card className="mt-8 overflow-hidden border-[rgba(134,239,172,0.14)] bg-[#0a120e]/70">
+        <dl className="divide-y divide-[rgba(134,239,172,0.08)]">
           {rows.map((row) => (
             <div key={row.label} className="grid gap-2 px-5 py-4 sm:grid-cols-[200px_1fr] sm:items-center">
               <dt className="text-xs tracking-[0.16em] uppercase text-[var(--gold)]">{row.label}</dt>
@@ -43,7 +43,7 @@ export function TokenDetails() {
             </div>
           ))}
         </dl>
-        <div className="flex flex-wrap gap-3 border-t border-[rgba(232,210,176,0.08)] p-5">
+        <div className="flex flex-wrap gap-3 border-t border-[rgba(134,239,172,0.08)] p-5">
           <CopyButton value={project.mint} />
           <HouseButton variant="primary" href="#adopt">
             Buy $Pump

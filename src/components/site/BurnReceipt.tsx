@@ -30,8 +30,8 @@ export function BurnReceipt({ burn }: { burn: BurnSnapshot }) {
           <span>Live mechanic</span>
         </div>
 
-        <div className="relative overflow-hidden rounded-[22px] bg-[#070b12] p-5 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.35)] sm:p-8">
-          <div className="pointer-events-none absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(247,147,26,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(247,147,26,0.14)_1px,transparent_1px)] [background-size:28px_28px]" />
+        <div className="relative overflow-hidden rounded-[22px] bg-[#050806] p-5 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.35)] sm:p-8">
+          <div className="pointer-events-none absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(134,239,172,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(134,239,172,0.14)_1px,transparent_1px)] [background-size:28px_28px]" />
           <div className="relative">
             <div className="flex flex-wrap gap-2">
               <span className="chip">CTO</span>

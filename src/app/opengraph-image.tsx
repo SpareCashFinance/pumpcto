@@ -19,21 +19,21 @@ export default async function Image() {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "64px",
-          background: "linear-gradient(135deg, #060A12 0%, #121820 55%, #1a1208 100%)",
+          background: "linear-gradient(135deg, #050806 0%, #121c16 55%, #052e16 100%)",
           color: "#f7f4ee",
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", width: 640 }}>
-          <div style={{ fontSize: 20, letterSpacing: 6, color: "#d4b46a" }}>
+          <div style={{ fontSize: 20, letterSpacing: 6, color: "#86efac" }}>
             $PUMP · CTO · SOLANA · PUMP.FUN
           </div>
           <div style={{ fontSize: 72, fontWeight: 800, lineHeight: 0.95, marginTop: 18 }}>
             COMMUNITY TAKEOVER
           </div>
-          <div style={{ fontSize: 34, color: "#f7931a", marginTop: 16 }}>
+          <div style={{ fontSize: 34, color: "#86efac", marginTop: 16 }}>
             3% tax. Paid back to holders in PUMP.
           </div>
-          <div style={{ fontSize: 22, color: "#e8d2b0", marginTop: 28 }}>
+          <div style={{ fontSize: 22, color: "#d8f5e4", marginTop: 28 }}>
             Dev left. Community stayed. Buy on Jupiter.
           </div>
         </div>
@@ -43,8 +43,8 @@ export default async function Image() {
             height: 360,
             borderRadius: 999,
             overflow: "hidden",
-            border: "3px solid rgba(247,147,26,0.4)",
-            background: "#060a12",
+            border: "3px solid rgba(134,239,172,0.4)",
+            background: "#050806",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

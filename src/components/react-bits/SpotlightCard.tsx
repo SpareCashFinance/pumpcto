@@ -31,7 +31,7 @@ export function SpotlightCard({
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background:
-            "radial-gradient(320px circle at var(--spot-x, 50%) var(--spot-y, 20%), rgba(247,147,26,0.16), transparent 55%)",
+            "radial-gradient(320px circle at var(--spot-x, 50%) var(--spot-y, 20%), rgba(134,239,172,0.16), transparent 55%)",
         }}
       />
       {children}

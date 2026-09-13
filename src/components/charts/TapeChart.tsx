@@ -19,18 +19,18 @@ export function TapeChart({ history }: { history: RewardEvent[] }) {
         attributionLogo: false,
       },
       grid: {
-        vertLines: { color: "rgba(232,210,176,0.06)" },
-        horzLines: { color: "rgba(232,210,176,0.06)" },
+        vertLines: { color: "rgba(134,239,172,0.06)" },
+        horzLines: { color: "rgba(134,239,172,0.06)" },
       },
-      rightPriceScale: { borderColor: "rgba(232,210,176,0.12)" },
-      timeScale: { borderColor: "rgba(232,210,176,0.12)", timeVisible: true },
-      crosshair: { vertLine: { color: "rgba(247,147,26,0.45)" } },
+      rightPriceScale: { borderColor: "rgba(134,239,172,0.12)" },
+      timeScale: { borderColor: "rgba(134,239,172,0.12)", timeVisible: true },
+      crosshair: { vertLine: { color: "rgba(134,239,172,0.45)" } },
     });
 
     const series = chart.addSeries(AreaSeries, {
-      lineColor: "#f7931a",
-      topColor: "rgba(247,147,26,0.28)",
-      bottomColor: "rgba(247,147,26,0.02)",
+      lineColor: "#86efac",
+      topColor: "rgba(134,239,172,0.28)",
+      bottomColor: "rgba(134,239,172,0.02)",
       lineWidth: 2,
     });
 
@@ -62,7 +62,7 @@ export function TapeChart({ history }: { history: RewardEvent[] }) {
     <div className="relative min-h-[220px]">
       <div ref={host} className="h-[220px] w-full" />
       {empty ? (
-        <div className="absolute inset-0 grid place-items-center rounded-2xl border border-dashed border-[rgba(232,210,176,0.16)] bg-[#060a12]/40 text-center">
+        <div className="absolute inset-0 grid place-items-center rounded-2xl border border-dashed border-[rgba(134,239,172,0.16)] bg-[#050806]/40 text-center">
           <p className="max-w-xs text-sm text-[var(--dim)]">
             Trading tape locked. Verified PUMP distributions will plot here after the first payout — no simulated candles.
           </p>

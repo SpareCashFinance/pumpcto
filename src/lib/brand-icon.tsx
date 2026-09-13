@@ -16,7 +16,7 @@ export async function brandIcon(size: number) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#060A12",
+          background: "#050806",
           borderRadius: 999,
         }}
       >

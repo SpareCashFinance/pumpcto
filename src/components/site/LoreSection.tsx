@@ -18,7 +18,7 @@ export function LoreSection() {
           >
             <p className="text-xs tracking-[0.22em] uppercase">{beat.stamp} / CTO MEMO</p>
             <h3 className="serif mt-6 text-3xl leading-tight">{beat.title}</h3>
-            <p className="mt-4 text-sm leading-6 text-[#4a3b28]">{beat.body}</p>
+            <p className="mt-4 text-sm leading-6 text-[var(--dim)]">{beat.body}</p>
           </SpotlightCard>
         ))}
       </div>

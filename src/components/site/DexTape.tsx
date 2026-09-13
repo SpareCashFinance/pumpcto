@@ -49,7 +49,7 @@ export function DexTape() {
       </div>
 
       <div className="tape-scanlines relative overflow-hidden rounded-[22px] bg-black shadow-[inset_0_0_0_1px_rgba(0,0,0,0.35)]">
-        <BorderBeam colorFrom="#f7931a" colorTo="#d4b46a" size={140} duration={10} />
+        <BorderBeam colorFrom="#86efac" colorTo="#4ade80" size={140} duration={10} />
         <div className="relative min-h-[280px] w-full sm:min-h-[360px] lg:min-h-[400px]">
           {live && inView ? (
             <>
@@ -73,11 +73,11 @@ export function DexTape() {
             <EmptyTape line={line} />
           )}
         </div>
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(6,10,18,0.12),transparent_18%,transparent_82%,rgba(6,10,18,0.28))]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.12),transparent_18%,transparent_82%,rgba(5,8,6,0.28))]" />
       </div>
 
       <div className="mt-3 flex flex-wrap items-center justify-between gap-3 px-2">
-        <p className="text-[11px] leading-5 tracking-[0.08em] text-[#4a3b28]">
+        <p className="text-[11px] leading-5 tracking-[0.08em] text-[var(--dim)]">
           {live
             ? "Live pair tape from DexScreener. Not a promise of price, volume, or rewards."
             : "This board lights the official DexScreener embed the moment the $Pump mint is published."}
@@ -87,12 +87,12 @@ export function DexTape() {
             href={page}
             target="_blank"
             rel="noreferrer"
-            className="text-[11px] tracking-[0.18em] uppercase text-[#4a3b28] hover:text-[#1a140c]"
+            className="text-[11px] tracking-[0.18em] uppercase text-[var(--dim)] hover:text-[var(--orange)]"
           >
             Open DexScreener
           </a>
         ) : (
-          <span className="text-[11px] tracking-[0.18em] uppercase text-[#4a3b28]/70">
+          <span className="text-[11px] tracking-[0.18em] uppercase text-[var(--dim)]/70">
             {hasMint() ? "Chart pair pending" : "Contract pending"}
           </span>
         )}
@@ -103,18 +103,18 @@ export function DexTape() {
 
 function ChartSkeleton() {
   return (
-    <div className="absolute inset-0 grid place-items-center bg-[#060a12]">
+    <div className="absolute inset-0 grid place-items-center bg-[#050806]">
       <div className="absolute inset-6 overflow-hidden rounded-xl opacity-40">
         <div className="absolute inset-x-0 bottom-[18%] h-px bg-[var(--orange)]/50" />
         <svg className="h-full w-full" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden>
           <path
             d="M0 28 C12 26 14 18 22 20 C30 22 34 12 42 14 C50 16 54 8 62 11 C70 14 74 6 82 9 C90 12 94 7 100 8 L100 40 L0 40 Z"
-            fill="rgba(247,147,26,0.16)"
+            fill="rgba(134,239,172,0.16)"
           />
           <path
             d="M0 28 C12 26 14 18 22 20 C30 22 34 12 42 14 C50 16 54 8 62 11 C70 14 74 6 82 9 C90 12 94 7 100 8"
             fill="none"
-            stroke="#f7931a"
+            stroke="#86efac"
             strokeWidth="0.6"
           />
         </svg>
@@ -128,8 +128,8 @@ function ChartSkeleton() {
 
 function EmptyTape({ line }: { line: number }) {
   return (
-    <div className="absolute inset-0 grid place-items-center bg-[#070b12]">
-      <div className="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:linear-gradient(rgba(247,147,26,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(247,147,26,0.12)_1px,transparent_1px)] [background-size:28px_28px]" />
+    <div className="absolute inset-0 grid place-items-center bg-[#050806]">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:linear-gradient(rgba(134,239,172,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(134,239,172,0.12)_1px,transparent_1px)] [background-size:28px_28px]" />
       <div className="relative max-w-md px-6 text-center">
         <p className="text-[11px] tracking-[0.28em] uppercase text-[var(--gold)]">No signal · Exhibit B</p>
         <p className="display mt-3 text-5xl text-white sm:text-6xl">The coin is off-tape.</p>

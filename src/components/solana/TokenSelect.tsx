@@ -142,7 +142,7 @@ export function TokenSelect({
       </button>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="desk-sheet border-white/10 bg-[#0c1320]/70 shadow-[0_30px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:max-w-sm">
+        <DialogContent className="desk-sheet border-white/10 bg-[#0a120e]/70 shadow-[0_30px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:max-w-sm">
           <DialogHeader>
             <DialogTitle>{title}</DialogTitle>
             <DialogDescription>Search any Solana mint, ticker, or name.</DialogDescription>

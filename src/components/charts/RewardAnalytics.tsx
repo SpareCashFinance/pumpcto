@@ -16,12 +16,12 @@ export function RewardAnalytics({ history }: { history: RewardEvent[] }) {
       xAxis: {
         type: "category",
         data: points.map((row, index) => row.at?.slice(5, 10) || `#${index + 1}`),
-        axisLine: { lineStyle: { color: "rgba(232,210,176,0.2)" } },
+        axisLine: { lineStyle: { color: "rgba(134,239,172,0.2)" } },
         axisLabel: { color: "#b8b3a8" },
       },
       yAxis: {
         type: "value",
-        splitLine: { lineStyle: { color: "rgba(232,210,176,0.08)" } },
+        splitLine: { lineStyle: { color: "rgba(134,239,172,0.08)" } },
         axisLabel: { color: "#b8b3a8" },
       },
       series: [
@@ -37,7 +37,7 @@ export function RewardAnalytics({ history }: { history: RewardEvent[] }) {
               y2: 1,
               colorStops: [
                 { offset: 0, color: "#ffb347" },
-                { offset: 1, color: "#f7931a" },
+                { offset: 1, color: "#86efac" },
               ],
             },
             borderRadius: [8, 8, 0, 0],

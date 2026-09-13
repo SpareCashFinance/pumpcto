@@ -109,7 +109,7 @@ function SolanaWalletModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="border-[rgba(232,210,176,0.16)] bg-[#0c1320] sm:max-w-md">
+      <DialogContent className="border-[rgba(134,239,172,0.16)] bg-[#0a120e] sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Connect a Solana wallet</DialogTitle>
           <DialogDescription>

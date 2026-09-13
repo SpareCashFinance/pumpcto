@@ -69,7 +69,7 @@ export function SocialIconLink({
       rel="noreferrer"
       aria-label={label}
       className={cn(
-        "inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-[rgba(232,210,176,0.22)] bg-[rgba(12,19,32,0.55)] text-[var(--cream)] hover:border-[rgba(247,147,26,0.55)] hover:bg-[rgba(247,147,26,0.1)] hover:text-white",
+        "inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-[rgba(134,239,172,0.22)] bg-[rgba(10,18,14,0.55)] text-[var(--cream)] hover:border-[rgba(134,239,172,0.55)] hover:bg-[rgba(134,239,172,0.1)] hover:text-white",
         className,
       )}
     >

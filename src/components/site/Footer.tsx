@@ -4,7 +4,7 @@ import { SocialIconLink, SocialMark } from "@/components/brand/SocialMarks";
 
 export function Footer() {
   return (
-    <footer className="relative z-1 border-t border-[rgba(232,210,176,0.08)] py-10">
+    <footer className="relative z-1 border-t border-[rgba(134,239,172,0.08)] py-10">
       <div className="mx-auto flex w-[min(1120px,calc(100%-1.5rem))] flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="display text-3xl">{project.name}</p>

@@ -61,7 +61,7 @@ export function Mascot({
       <CircularText
         pathId={ringId}
         text="A CTO • 3% TAX • PAID TO HOLDERS IN PUMP • $PUMP • PUMP.FUN"
-        className="pointer-events-none absolute inset-0 text-[rgba(232,210,176,0.42)]"
+        className="pointer-events-none absolute inset-0 text-[rgba(134,239,172,0.42)]"
       />
       <div
         className={`mascot-idle relative grid place-items-center transition-transform duration-500 ${trickClass[trick]}`}
@@ -70,8 +70,8 @@ export function Mascot({
           transform: `perspective(900px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)`,
         }}
       >
-        <div className="absolute inset-[-8%] rounded-full bg-[radial-gradient(circle,rgba(247,147,26,0.28),transparent_68%)] blur-2xl" />
-        <div className="relative z-10 grid aspect-square w-full place-items-center overflow-hidden rounded-full border border-[rgba(247,147,26,0.35)] bg-[#060a12]">
+        <div className="absolute inset-[-8%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.28),transparent_68%)] blur-2xl" />
+        <div className="relative z-10 grid aspect-square w-full place-items-center overflow-hidden rounded-full border border-[rgba(134,239,172,0.35)] bg-[#050806]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/mascot.jpg"
@@ -80,8 +80,9 @@ export function Mascot({
           />
         </div>
         {dropping ? (
-          <span className="coin-drop absolute left-1/2 top-[18%] z-20 grid h-10 w-10 place-items-center rounded-full bg-[#f7931a] text-sm font-black text-[#1a0f04] shadow-[0_0_24px_rgba(247,147,26,0.65)]">
-            P
+          <span className="coin-drop absolute left-1/2 top-[18%] z-20 block h-7 w-14 -translate-x-1/2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/pill.svg" alt="" className="h-full w-full" />
           </span>
         ) : null}
         {stacked > 0 ? (
@@ -89,9 +90,10 @@ export function Mascot({
             {Array.from({ length: stacked }).map((_, index) => (
               <span
                 key={index}
-                className="mb-[-8px] grid h-8 w-8 place-items-center rounded-full bg-[#f7931a] text-[10px] font-black text-[#1a0f04] shadow-lg"
+                className="mb-[-6px] block h-5 w-10"
               >
-                P
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/pill.svg" alt="" className="h-full w-full" />
               </span>
             ))}
           </div>

@@ -18,14 +18,14 @@ export function ExhibitTape() {
           </p>
         </div>
         <div className="relative">
-          <div className="absolute left-2 top-2 z-20 hidden rotate-[-8deg] rounded bg-[#c0392b] px-3 py-1 text-[11px] font-bold tracking-[0.18em] text-white shadow-lg lg:block">
+          <div className="absolute left-2 top-2 z-20 hidden rotate-[-8deg] rounded bg-[#16a34a] px-3 py-1 text-[11px] font-bold tracking-[0.18em] text-white shadow-lg lg:block">
             CTO
           </div>
           <Mascot size="stage" />
           <div className="cardboard mt-4 rounded-3xl p-5">
             <p className="text-[11px] tracking-[0.2em] uppercase">Community filing</p>
             <p className="serif mt-2 text-2xl">Hold $Pump. Get paid in PUMP.</p>
-            <p className="mt-2 text-sm leading-6 text-[#4a3b28]">
+            <p className="mt-2 text-sm leading-6 text-[var(--dim)]">
               A 3% trading fee is routed toward eligible holders in the pump.fun
               token. That is the entire punchline.
             </p>

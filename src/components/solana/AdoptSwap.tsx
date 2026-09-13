@@ -272,15 +272,15 @@ export function AdoptSwap({ embedded = false }: { embedded?: boolean }) {
 
   const card = (
     <LiquidSurface intensity="panel" radius={28} className="desk h-full">
-      <Card className="relative h-full overflow-hidden border-white/8 bg-[#0c1320]/45 p-4 sm:p-5 backdrop-blur-2xl">
-        <div className="pointer-events-none absolute -top-16 -right-10 size-40 rounded-full bg-[radial-gradient(circle,rgba(247,147,26,0.16),transparent_68%)]" />
+      <Card className="relative h-full overflow-hidden border-white/8 bg-[#0a120e]/45 p-4 sm:p-5 backdrop-blur-2xl">
+        <div className="pointer-events-none absolute -top-16 -right-10 size-40 rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.16),transparent_68%)]" />
         <div className="pointer-events-none absolute -bottom-20 -left-8 size-44 rounded-full bg-[radial-gradient(circle,rgba(102,249,237,0.08),transparent_70%)]" />
 
         <div className="relative flex items-start justify-between gap-3">
           <div className="flex min-w-0 items-center gap-3">
             <BrandMark
               size={40}
-              className="shrink-0 border border-[rgba(247,147,26,0.35)] sm:h-11 sm:w-11"
+              className="shrink-0 border border-[rgba(134,239,172,0.35)] sm:h-11 sm:w-11"
             />
             <div className="min-w-0">
               <p className="kicker">Jupiter desk</p>
@@ -325,7 +325,7 @@ export function AdoptSwap({ embedded = false }: { embedded?: boolean }) {
               type="button"
               onClick={flipLegs}
               aria-label="Flip pay and receive"
-              className="inline-flex size-9 items-center justify-center rounded-full border border-white/12 bg-[#0c1320]/80 text-white shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-xl hover:bg-white/10"
+              className="inline-flex size-9 items-center justify-center rounded-full border border-white/12 bg-[#0a120e]/80 text-white shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-xl hover:bg-white/10"
             >
               <ArrowDownUp className="size-4" />
             </button>

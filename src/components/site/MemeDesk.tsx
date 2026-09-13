@@ -131,8 +131,8 @@ function MemeActions({ meme }: { meme: MemeCard }) {
 function MemeTile({ meme }: { meme: MemeCard }) {
   return (
     <article className="glass-panel flex h-[24.75rem] w-[12.5rem] shrink-0 flex-col overflow-hidden rounded-[20px]">
-      <div className="relative h-[12.5rem] shrink-0 bg-[#070b12]">
-        <span className="absolute left-2 top-2 z-10 rounded-full bg-[#c0392b] px-2 py-0.5 text-[9px] font-bold tracking-[0.16em] text-white">
+      <div className="relative h-[12.5rem] shrink-0 bg-[#050806]">
+        <span className="absolute left-2 top-2 z-10 rounded-full bg-[#16a34a] px-2 py-0.5 text-[9px] font-bold tracking-[0.16em] text-white">
           {meme.stamp}
         </span>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -262,13 +262,13 @@ function MemeCarousel({ items }: { items: MemeCard[] }) {
             {bottom.length > 0 ? <MemeRow items={[...bottom, ...bottom]} copy={1} /> : null}
           </div>
         </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[#060a12] to-transparent sm:w-14" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[#060a12] to-transparent sm:w-14" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[#050806] to-transparent sm:w-14" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[#050806] to-transparent sm:w-14" />
         <button
           type="button"
           aria-label="Previous memes"
           onClick={() => page(-1)}
-          className="absolute inset-y-0 left-1 z-10 my-auto inline-flex size-10 items-center justify-center rounded-full border border-[rgba(232,210,176,0.22)] bg-[rgba(12,19,32,0.82)] text-[var(--cream)] backdrop-blur-md hover:border-[rgba(247,147,26,0.55)] hover:text-white"
+          className="absolute inset-y-0 left-1 z-10 my-auto inline-flex size-10 items-center justify-center rounded-full border border-[rgba(134,239,172,0.22)] bg-[rgba(10,18,14,0.82)] text-[var(--cream)] backdrop-blur-md hover:border-[rgba(134,239,172,0.55)] hover:text-white"
         >
           <ChevronLeft size={18} />
         </button>
@@ -276,7 +276,7 @@ function MemeCarousel({ items }: { items: MemeCard[] }) {
           type="button"
           aria-label="Next memes"
           onClick={() => page(1)}
-          className="absolute inset-y-0 right-1 z-10 my-auto inline-flex size-10 items-center justify-center rounded-full border border-[rgba(232,210,176,0.22)] bg-[rgba(12,19,32,0.82)] text-[var(--cream)] backdrop-blur-md hover:border-[rgba(247,147,26,0.55)] hover:text-white"
+          className="absolute inset-y-0 right-1 z-10 my-auto inline-flex size-10 items-center justify-center rounded-full border border-[rgba(134,239,172,0.22)] bg-[rgba(10,18,14,0.82)] text-[var(--cream)] backdrop-blur-md hover:border-[rgba(134,239,172,0.55)] hover:text-white"
         >
           <ChevronRight size={18} />
         </button>

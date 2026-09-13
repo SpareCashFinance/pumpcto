@@ -29,8 +29,8 @@ export function Hero() {
             words={["COMMUNITY TAKEOVER", "$PUMP", "PAID IN PUMP"]}
             padTo={18}
             fontSize="clamp(20px, 4.6vw, 44px)"
-            tileColor="#121820"
-            textColor="#f4efe6"
+            tileColor="#121c16"
+            textColor="#f4fff8"
             tileRadius={6}
             gap={4}
             flipDuration={0.1}

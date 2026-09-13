@@ -55,12 +55,12 @@ export function RewardTerminal({ market: initial }: { market: MarketSnapshot }) 
         </Badge>
       </div>
 
-      <Card className="relative overflow-hidden border-[rgba(232,210,176,0.14)] bg-[#0c1320]/70 p-5 sm:p-8">
-        <BorderBeam colorFrom="#f7931a" colorTo="#d4b46a" size={120} duration={9} />
+      <Card className="relative overflow-hidden border-[rgba(134,239,172,0.14)] bg-[#0a120e]/70 p-5 sm:p-8">
+        <BorderBeam colorFrom="#86efac" colorTo="#4ade80" size={120} duration={9} />
         <p className="max-w-2xl text-sm leading-6 text-[var(--dim)]">{market.message}</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {figures.map((row) => (
-            <div key={row.label} className="rounded-2xl border border-[rgba(232,210,176,0.1)] bg-[#060a12]/50 p-4">
+            <div key={row.label} className="rounded-2xl border border-[rgba(134,239,172,0.1)] bg-[#050806]/50 p-4">
               <p className="kicker">{row.label}</p>
               <p className="mt-2 font-mono text-2xl text-white">
                 <SlotHeadline value={row.value ?? "—"} entrance={Boolean(row.value)} />
@@ -85,7 +85,7 @@ export function RewardTerminal({ market: initial }: { market: MarketSnapshot }) 
                     href={explorerAccountUrl(row.wallet)}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-between rounded-2xl border border-[rgba(232,210,176,0.1)] bg-[#060a12]/50 px-4 py-3 text-sm hover:border-[rgba(247,147,26,0.35)]"
+                    className="flex items-center justify-between rounded-2xl border border-[rgba(134,239,172,0.1)] bg-[#050806]/50 px-4 py-3 text-sm hover:border-[rgba(134,239,172,0.35)]"
                   >
                     <span className="font-mono text-white">{shortenAddress(row.wallet, 6)}</span>
                     <span className="font-mono text-[var(--orange)]">

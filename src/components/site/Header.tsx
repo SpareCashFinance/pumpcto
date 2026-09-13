@@ -24,7 +24,7 @@ export function Header() {
           aria-label={project.name}
           className="flex min-w-0 items-center gap-2"
         >
-          <BrandMark size={32} className="shrink-0 border border-[rgba(247,147,26,0.35)] sm:h-9 sm:w-9" />
+          <BrandMark size={32} className="shrink-0 border border-[rgba(134,239,172,0.35)] sm:h-9 sm:w-9" />
           <span className="display whitespace-nowrap text-[1.65rem] leading-none text-[var(--gold)] sm:text-2xl">
             {project.ticker}
           </span>
