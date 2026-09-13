@@ -32,7 +32,12 @@ export function Providers({ children }: { children: ReactNode }) {
           hypothesisId: "C",
           location: "Providers.tsx:onerror",
           message: "window onerror",
-          data: { error: String(event.message), file: event.filename, line: event.lineno },
+          data: {
+            error: String(event.message),
+            file: event.filename,
+            line: event.lineno,
+            stack: event.error instanceof Error ? event.error.stack?.slice(0, 280) : null,
+          },
           timestamp: Date.now(),
         }),
       }).catch(() => {});

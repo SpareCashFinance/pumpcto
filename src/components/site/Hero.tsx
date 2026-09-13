@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Magnet } from "@/components/react-bits/Magnet";
-import SplitFlapText from "@/components/react-bits/SplitFlapText";
 import { ChainMarks } from "@/components/brand/ChainMarks";
 import { project } from "@/lib/config";
 import { pumpfunTokenUrl } from "@/lib/links";
@@ -24,18 +23,9 @@ export function Hero() {
         <AnimatedShinyText className="kicker mx-0 max-w-none text-[var(--gold)] dark:text-[var(--gold)] dark:via-[var(--orange)]">
           Solana · pump.fun · CTO · PUMP holder rewards
         </AnimatedShinyText>
-        <div className="overflow-x-auto pb-1">
-          <SplitFlapText
-            words={["COMMUNITY TAKEOVER"]}
-            padTo={18}
-            fontSize="clamp(20px, 4.6vw, 44px)"
-            tileColor="#121c16"
-            textColor="#f4fff8"
-            tileRadius={6}
-            gap={4}
-            loop={false}
-          />
-        </div>
+        <p className="font-mono text-[clamp(20px,4.6vw,44px)] tracking-[0.08em] text-[#f4fff8]">
+          COMMUNITY TAKEOVER
+        </p>
         <h1 className="display text-[clamp(2.4rem,8vw,5.2rem)] text-white">
           The community
           <br />
