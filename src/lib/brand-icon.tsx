@@ -5,7 +5,6 @@ import { ImageResponse } from "next/og";
 export async function brandIcon(size: number) {
   const mascot = await readFile(join(process.cwd(), "public/mascot.jpg"));
   const src = `data:image/jpeg;base64,${mascot.toString("base64")}`;
-  const mark = Math.round(size * 0.78);
 
   return new ImageResponse(
     (
@@ -14,19 +13,23 @@ export async function brandIcon(size: number) {
           width: "100%",
           height: "100%",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#050806",
+          overflow: "hidden",
           borderRadius: 999,
+          background: "#050806",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={src}
-          width={mark}
-          height={mark}
+          width={size}
+          height={size}
           alt=""
-          style={{ objectFit: "cover" }}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            borderRadius: 999,
+          }}
         />
       </div>
     ),

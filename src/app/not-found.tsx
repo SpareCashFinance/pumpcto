@@ -9,7 +9,7 @@ export default function NotFound() {
         alt="Pump token mark looking unimpressed"
         width={280}
         height={280}
-        className="mb-8 aspect-square max-w-[60vw] rounded-full border border-[rgba(134,239,172,0.35)] bg-[#050806] object-contain p-[12%]"
+        className="mb-8 aspect-square max-w-[60vw] overflow-hidden rounded-full border border-[rgba(134,239,172,0.35)] bg-[#050806] object-cover"
       />
       <p className="kicker">404 · Chart not found</p>
       <h1 className="display mt-3 text-6xl text-white">This coin wandered off.</h1>
