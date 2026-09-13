@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { BrandMark } from "@/components/brand/BrandMark";
+import { project } from "@/lib/config";
 import { formatPct, formatUsdPrice } from "@/lib/format";
 import { usePriceTape } from "@/lib/tape-client";
 import type { PriceTapeSnapshot, TapeQuote } from "@/lib/tape";
@@ -42,7 +43,7 @@ function TapeSequence({ tape }: { tape: PriceTapeSnapshot }) {
             quote={tape.btc}
             mark={
               // eslint-disable-next-line @next/next/no-img-element
-              <img src="/pill.svg" alt="" width={22} height={11} className="inline-block h-3 w-6 align-[-0.15em]" />
+              <img src={project.assets.mark} alt="" width={22} height={11} className="inline-block h-3 w-6 align-[-0.15em]" />
             }
           />
           <span className="text-[var(--stone)]">•</span>

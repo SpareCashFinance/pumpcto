@@ -1,3 +1,5 @@
+import { project } from "@/lib/config";
+
 export function BrandMark({
   size = 20,
   className = "",
@@ -8,7 +10,7 @@ export function BrandMark({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="/mascot.jpg"
+      src={project.assets.mascot}
       alt=""
       width={size}
       height={size}

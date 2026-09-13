@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useSyncExternalStore } from "react";
+import { project } from "@/lib/config";
 
 const PILLS = [
   { left: 2, size: 22, delay: 0, duration: 14, drift: 14, opacity: 0.42, spin: 1 },
@@ -63,7 +64,7 @@ export function PillRain() {
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/pill.svg" alt="" width={pill.size * 2} height={pill.size} className="h-full w-full" />
+          <img src={project.assets.mark} alt="" width={pill.size * 2} height={pill.size} className="h-full w-full" />
         </span>
       ))}
     </div>

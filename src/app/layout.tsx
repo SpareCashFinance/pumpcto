@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Geist, Geist_Mono, Newsreader } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import { project } from "@/lib/config";
+import { themeColor, themeCssVars } from "@/lib/theme";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,7 +33,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#050806",
+  themeColor,
 };
 
 export const metadata: Metadata = {
@@ -50,8 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@ynmontyy",
-    creator: "@ynmontyy",
+    site: project.twitterHandle,
+    creator: project.twitterHandle,
     title,
     description,
   },
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`dark ${geistSans.variable} ${geistMono.variable} ${bebas.variable} ${newsreader.variable} h-full antialiased`}
+      style={themeCssVars()}
     >
       <body className="min-h-full">
         <Providers>{children}</Providers>

@@ -35,6 +35,13 @@ export const project = {
   liquidityStatus: "PumpSwap canonical pool",
   authorityStatus: "Mint and freeze authority disabled",
   shareText: "CTO. 3% tax. Paid to holders in PUMP. $Pump",
+  twitterHandle: "@ynmontyy",
+  assets: {
+    mascot: "/mascot.jpg",
+    mascotFile: "mascot.jpg",
+    mark: "/pill.svg",
+    markFile: "pill.svg",
+  },
 } as const;
 
 export const holderFeePercent = Number(process.env.NEXT_PUBLIC_HOLDER_FEE_PERCENT || 3) || 3;

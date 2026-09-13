@@ -81,7 +81,7 @@ export function projectToken(): SwapToken {
     symbol: project.tickerBare,
     name: project.name,
     decimals: projectDecimals(),
-    icon: "/mascot.jpg",
+    icon: project.assets.mascot,
     verified: true,
   };
 }

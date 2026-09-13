@@ -1,9 +1,11 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { project } from "@/lib/config";
+import { theme } from "@/lib/theme";
 
 export async function brandIcon(size: number) {
-  const mascot = await readFile(join(process.cwd(), "public/mascot.jpg"));
+  const mascot = await readFile(join(process.cwd(), "public", project.assets.mascotFile));
   const src = `data:image/jpeg;base64,${mascot.toString("base64")}`;
 
   return new ImageResponse(
@@ -15,7 +17,7 @@ export async function brandIcon(size: number) {
           display: "flex",
           overflow: "hidden",
           borderRadius: 999,
-          background: "#050806",
+          background: theme.bg,
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}

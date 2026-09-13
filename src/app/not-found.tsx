@@ -1,11 +1,12 @@
 import { HouseButton } from "@/components/ui/house-button";
+import { project } from "@/lib/config";
 
 export default function NotFound() {
   return (
     <main className="relative z-1 mx-auto flex min-h-screen w-[min(720px,calc(100%-1.5rem))] flex-col items-center justify-center py-20 text-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/mascot.jpg"
+        src={project.assets.mascot}
         alt="Pump token mark looking unimpressed"
         width={280}
         height={280}

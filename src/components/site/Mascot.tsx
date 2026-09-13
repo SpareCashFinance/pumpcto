@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { CircularText } from "@/components/react-bits/CircularText";
+import { project } from "@/lib/config";
 
 type Trick = "idle" | "sit" | "stay" | "rollover" | "fetch" | "stack";
 
@@ -74,7 +75,7 @@ export function Mascot({
         <div className="relative z-10 grid aspect-square w-full place-items-center overflow-hidden rounded-full border border-[rgba(134,239,172,0.35)] bg-[#050806]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/mascot.jpg"
+            src={project.assets.mascot}
             alt="Pump community-takeover token mark"
             className="h-full w-full select-none object-cover"
           />
@@ -82,7 +83,7 @@ export function Mascot({
         {dropping ? (
           <span className="coin-drop absolute left-1/2 top-[18%] z-20 block h-7 w-14 -translate-x-1/2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/pill.svg" alt="" className="h-full w-full" />
+            <img src={project.assets.mark} alt="" className="h-full w-full" />
           </span>
         ) : null}
         {stacked > 0 ? (
@@ -93,7 +94,7 @@ export function Mascot({
                 className="mb-[-6px] block h-5 w-10"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/pill.svg" alt="" className="h-full w-full" />
+                <img src={project.assets.mark} alt="" className="h-full w-full" />
               </span>
             ))}
           </div>
