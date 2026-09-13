@@ -70,21 +70,6 @@ function useEnrichedToken(token: SwapToken, setToken: (next: SwapToken) => void)
 
 export function AdoptSwap({ embedded = false }: { embedded?: boolean }) {
   const solana = useSolanaWallet();
-  // #region agent log
-  fetch("http://127.0.0.1:7447/ingest/7261716d-045c-4378-bc38-b41af16803cc", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "f3f691" },
-    body: JSON.stringify({
-      sessionId: "f3f691",
-      runId: "pre-fix",
-      hypothesisId: "A",
-      location: "AdoptSwap.tsx:render",
-      message: "swap desk render",
-      data: { connected: solana.connected, hasAddress: Boolean(solana.address) },
-      timestamp: Date.now(),
-    }),
-  }).catch(() => {});
-  // #endregion
   const [payToken, setPayToken] = useState<SwapToken>(SOL_TOKEN);
   const [receiveToken, setReceiveToken] = useState<SwapToken>(adoptOutputToken);
   const [amount, setAmount] = useState(defaultPayAmount(SOL_TOKEN));

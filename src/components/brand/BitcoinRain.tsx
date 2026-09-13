@@ -43,40 +43,7 @@ export function PillRain() {
     () => true,
   );
   const pills = useMemo(() => PILLS, []);
-  if (!mounted || reduce) {
-    // #region agent log
-    fetch("http://127.0.0.1:7447/ingest/7261716d-045c-4378-bc38-b41af16803cc", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "f3f691" },
-      body: JSON.stringify({
-        sessionId: "f3f691",
-        runId: "pre-fix",
-        hypothesisId: "B",
-        location: "BitcoinRain.tsx:skip",
-        message: "pill rain skipped",
-        data: { mounted, reduce },
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {});
-    // #endregion
-    return null;
-  }
-
-  // #region agent log
-  fetch("http://127.0.0.1:7447/ingest/7261716d-045c-4378-bc38-b41af16803cc", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "f3f691" },
-    body: JSON.stringify({
-      sessionId: "f3f691",
-      runId: "pre-fix",
-      hypothesisId: "B",
-      location: "BitcoinRain.tsx:render",
-      message: "pill rain drawing",
-      data: { count: pills.length },
-      timestamp: Date.now(),
-    }),
-  }).catch(() => {});
-  // #endregion
+  if (!mounted || reduce) return null;
 
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>

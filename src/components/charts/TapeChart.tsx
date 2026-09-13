@@ -18,22 +18,6 @@ function pointsFrom(history: RewardEvent[]) {
 export function TapeChart({ history }: { history: RewardEvent[] }) {
   const points = pointsFrom(history);
 
-  // #region agent log
-  fetch("http://127.0.0.1:7447/ingest/7261716d-045c-4378-bc38-b41af16803cc", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "f3f691" },
-    body: JSON.stringify({
-      sessionId: "f3f691",
-      runId: "post-fix",
-      hypothesisId: "G",
-      location: "TapeChart.tsx:svg",
-      message: "svg tape mounted",
-      data: { raw: history.length, unique: points.length },
-      timestamp: Date.now(),
-    }),
-  }).catch(() => {});
-  // #endregion
-
   if (points.length < 2) {
     return (
       <div className="relative grid min-h-[220px] place-items-center rounded-2xl border border-dashed border-[rgba(134,239,172,0.16)] bg-[#050806]/40 text-center">

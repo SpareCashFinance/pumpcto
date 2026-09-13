@@ -25,22 +25,6 @@ export const BorderBeam = ({
   reverse = false,
   borderWidth = 1,
 }: BorderBeamProps) => {
-  // #region agent log
-  fetch("http://127.0.0.1:7447/ingest/7261716d-045c-4378-bc38-b41af16803cc", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "f3f691" },
-    body: JSON.stringify({
-      sessionId: "f3f691",
-      runId: "post-fix",
-      hypothesisId: "C",
-      location: "border-beam.tsx:mount",
-      message: "css border beam mounted",
-      data: { duration, reverse },
-      timestamp: Date.now(),
-    }),
-  }).catch(() => {});
-  // #endregion
-
   return (
     <div
       className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit] border-transparent mask-[linear-gradient(#000,#000),linear-gradient(#000,#000)] [mask-clip:padding-box,border-box] [mask-composite:exclude]"

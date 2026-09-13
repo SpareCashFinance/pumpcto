@@ -25,56 +25,13 @@ export function SolanaWalletProvider({ children }: { children: ReactNode }) {
     return clusterApiUrl("mainnet-beta");
   }, []);
 
-  // #region agent log
-  fetch("http://127.0.0.1:7447/ingest/7261716d-045c-4378-bc38-b41af16803cc", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "f3f691" },
-    body: JSON.stringify({
-      sessionId: "f3f691",
-      runId: "pre-fix",
-      hypothesisId: "A",
-      location: "SolanaWalletProvider.tsx:render",
-      message: "wallet provider render",
-      data: {
-        rpcHost: rpc.replace(/^https?:\/\//, "").split("/")[0],
-        walletCount: wallets.length,
-        hasPhantom: typeof window !== "undefined" && Boolean((window as { solana?: unknown }).solana),
-      },
-      timestamp: Date.now(),
-    }),
-  }).catch(() => {});
-  // #endregion
-
   return (
     <ConnectionProvider endpoint={rpc}>
       <WalletProvider wallets={wallets} autoConnect localStorageKey="pumpcto-solana-wallet">
-        <WalletStateProbe />
         <SolanaWalletModalHost>{children}</SolanaWalletModalHost>
       </WalletProvider>
     </ConnectionProvider>
   );
-}
-
-function WalletStateProbe() {
-  const { connected, connecting, wallet } = useWallet();
-  useEffect(() => {
-    // #region agent log
-    fetch("http://127.0.0.1:7447/ingest/7261716d-045c-4378-bc38-b41af16803cc", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "f3f691" },
-      body: JSON.stringify({
-        sessionId: "f3f691",
-        runId: "pre-fix",
-        hypothesisId: "A",
-        location: "SolanaWalletProvider.tsx:WalletStateProbe",
-        message: "wallet state",
-        data: { connected, connecting, walletName: wallet?.adapter.name ?? null },
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {});
-    // #endregion
-  }, [connected, connecting, wallet]);
-  return null;
 }
 
 function SolanaWalletModalHost({ children }: { children: ReactNode }) {
