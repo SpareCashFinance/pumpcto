@@ -1,6 +1,6 @@
 import { getMarketSnapshot } from "@/lib/market";
 
-export const revalidate = 30;
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   const market = await getMarketSnapshot();
