@@ -26,17 +26,14 @@ export function Hero() {
         </AnimatedShinyText>
         <div className="overflow-x-auto pb-1">
           <SplitFlapText
-            words={["COMMUNITY TAKEOVER", "$PUMP", "PAID IN PUMP"]}
+            words={["COMMUNITY TAKEOVER"]}
             padTo={18}
             fontSize="clamp(20px, 4.6vw, 44px)"
             tileColor="#121c16"
             textColor="#f4fff8"
             tileRadius={6}
             gap={4}
-            flipDuration={0.1}
-            stagger={0.035}
-            cycleDelay={2800}
-            flipsPerChar={4}
+            loop={false}
           />
         </div>
         <h1 className="display text-[clamp(2.4rem,8vw,5.2rem)] text-white">
