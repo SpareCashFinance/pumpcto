@@ -18,6 +18,15 @@ export const project = {
   pair:
     process.env.NEXT_PUBLIC_DEXSCREENER_PAIR?.trim() ||
     "EQLRoZk2hfjy9CTzdWkXcX8m8TcNW5FCfGc6GNoeUfGH",
+  rewardVault:
+    process.env.NEXT_PUBLIC_REWARD_VAULT?.trim() ||
+    "5QpP6y6W3hkVqmy8nxa1nxeZo3pmYGvVjkPnTurYtwfa",
+  rewardVaultAta:
+    process.env.NEXT_PUBLIC_REWARD_VAULT_ATA?.trim() ||
+    "GcFV1n3a5mHKYm2mBNieLWA9Mu4NZQSwB7sm5AiiSSk",
+  rewardProgram:
+    process.env.NEXT_PUBLIC_REWARD_PROGRAM?.trim() ||
+    "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P",
   totalSupply: process.env.NEXT_PUBLIC_TOTAL_SUPPLY ?? "1B",
   burnPercent: 0,
   burnTx: "",

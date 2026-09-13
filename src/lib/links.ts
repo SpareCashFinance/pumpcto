@@ -63,6 +63,11 @@ export function explorerUrl(address = project.mint) {
   return `${SOLSCAN_ORIGIN}/token/${address}`;
 }
 
+export function explorerAccountUrl(address: string) {
+  if (!address) return "";
+  return `${SOLSCAN_ORIGIN}/account/${address}`;
+}
+
 export function explorerTxUrl(signature: string) {
   return `${SOLSCAN_ORIGIN}/tx/${signature}`;
 }

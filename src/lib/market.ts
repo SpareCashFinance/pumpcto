@@ -1,4 +1,7 @@
 import { hasMint, holderFeePercent, project } from "./config";
+import { getRewardTape, type RewardReceiver } from "./rewards";
+
+export type { RewardReceiver };
 
 export type MarketStatus =
   | "awaiting_launch"
@@ -37,6 +40,7 @@ export type MarketSnapshot = {
   lastDistribution: RewardEvent | null;
   nextRewardStatus: string;
   history: RewardEvent[];
+  topReceivers: RewardReceiver[];
   updatedAt: string | null;
 };
 
@@ -62,6 +66,7 @@ function emptySnapshot(status: MarketStatus, message: string): MarketSnapshot {
     totalDistributedSymbol: project.rewardAsset,
     payoutCount: null,
     lastDistribution: null,
+    topReceivers: [],
     nextRewardStatus:
       status === "awaiting_launch" || status === "awaiting_index"
         ? "Awaiting launch"
@@ -120,7 +125,7 @@ export async function getMarketSnapshot(): Promise<MarketSnapshot> {
   }
 
   try {
-    const { ok, status, pair } = await readDexPairs();
+    const [{ ok, status, pair }, rewards] = await Promise.all([readDexPairs(), getRewardTape()]);
 
     if (status === 429) {
       return emptySnapshot(
@@ -141,24 +146,36 @@ export async function getMarketSnapshot(): Promise<MarketSnapshot> {
     const volume24hUsd = num(pair.volume?.h24);
     const liquidityUsd = num(pair.liquidity?.usd);
     const live = priceUsd != null && priceUsd > 0;
+    const paid = Boolean(rewards && rewards.payoutCount > 0);
 
     return {
       ...emptySnapshot(
-        live ? "no_distribution" : "awaiting_index",
-        live
-          ? "Pair is live on PumpSwap. Holder Rewards in PUMP are paid by pump.fun from the 3% trading fee — this board does not invent payout totals."
-          : "Pair is listed. Waiting for a live price print.",
+        paid ? "live" : live ? "no_distribution" : "awaiting_index",
+        paid
+          ? `On-chain Holder Rewards. pump.fun instruction DistributeFeeToHolders pays PUMP from vault ${project.rewardVault.slice(0, 4)}…${project.rewardVault.slice(-4)}. Recent window covers the last ${rewards?.scanned ?? 0} vault transactions.`
+          : live
+            ? "Pair is live on PumpSwap. Waiting for the next DistributeFeeToHolders payout on-chain."
+            : "Pair is listed. Waiting for a live price print.",
       ),
-      status: live ? "no_distribution" : "awaiting_index",
+      status: paid ? "live" : live ? "no_distribution" : "awaiting_index",
       mode: "reward",
       transferFeeBps: holderFeePercent * 100,
       priceUsd,
       marketCapUsd,
       volume24hUsd,
       liquidityUsd,
-      nextRewardStatus: live
-        ? "Variable — 3% of trades to eligible holders in PUMP"
-        : "Waiting on the first print",
+      holders: rewards?.holdersPaid ?? null,
+      totalDistributed: rewards?.totalDistributed ?? null,
+      pendingDistributed: rewards?.pendingDistributed ?? null,
+      payoutCount: rewards?.payoutCount ?? null,
+      lastDistribution: rewards?.lastDistribution ?? null,
+      history: rewards?.history ?? [],
+      topReceivers: rewards?.topReceivers ?? [],
+      nextRewardStatus: paid
+        ? "Variable — cranked several times per hour"
+        : live
+          ? "Waiting on the next vault payout"
+          : "Waiting on the first print",
       updatedAt: new Date().toISOString(),
     };
   } catch {

@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { displayValue, holderFeePercent, project } from "@/lib/config";
 import { formatAmount, formatCount, formatUsd, shortenAddress, timeAgo } from "@/lib/format";
-import { explorerUrl } from "@/lib/links";
+import { explorerAccountUrl, explorerTxUrl, explorerUrl } from "@/lib/links";
 import type { MarketSnapshot } from "@/lib/market";
 import { useMarketSnapshot } from "@/lib/market-client";
 import { HouseButton } from "@/components/ui/house-button";
@@ -30,10 +30,10 @@ export function RewardTerminal({ market: initial }: { market: MarketSnapshot }) 
       ? `${(market.transferFeeBps / 100).toFixed(2)}%`
       : displayValue(project.transferFee, `${holderFeePercent}%`);
   const figures = [
-    { label: `Total ${market.totalDistributedSymbol} distributed`, value: formatAmount(market.totalDistributed, 6), hint: market.totalDistributedSymbol },
-    { label: "Pending pot", value: formatAmount(market.pendingDistributed, 6), hint: "Accrued, not paid yet" },
-    { label: "Eligible holders", value: formatCount(market.holders), hint: "From pump.fun Holder Rewards when live" },
-    { label: "Distributions", value: formatCount(market.payoutCount), hint: "Confirmed payouts" },
+    { label: `Recent ${market.totalDistributedSymbol} paid`, value: formatAmount(market.totalDistributed, 2), hint: "From the latest vault payouts on-chain" },
+    { label: "Vault remaining", value: formatAmount(market.pendingDistributed, 2), hint: "PUMP still sitting in the reward vault" },
+    { label: "Holders paid", value: formatCount(market.holders), hint: "Unique wallets in this scan window" },
+    { label: "Payout batches", value: formatCount(market.payoutCount), hint: "DistributeFeeToHolders transactions" },
     { label: "24h volume", value: formatUsd(market.volume24hUsd), hint: "Official market only" },
     { label: "Market cap", value: formatUsd(market.marketCapUsd), hint: "Not a promise" },
     { label: "Liquidity", value: formatUsd(market.liquidityUsd), hint: displayValue(project.liquidityStatus, "To be confirmed") },
@@ -76,8 +76,27 @@ export function RewardTerminal({ market: initial }: { market: MarketSnapshot }) 
             <TapeChart history={market.history} />
           </div>
           <div>
-            <p className="kicker mb-3">Payout analytics</p>
-            <RewardAnalytics history={market.history} />
+            <p className="kicker mb-3">Top receivers</p>
+            {market.topReceivers.length ? (
+              <div className="space-y-2">
+                {market.topReceivers.map((row) => (
+                  <a
+                    key={row.wallet}
+                    href={explorerAccountUrl(row.wallet)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-between rounded-2xl border border-[rgba(232,210,176,0.1)] bg-[#060a12]/50 px-4 py-3 text-sm hover:border-[rgba(247,147,26,0.35)]"
+                  >
+                    <span className="font-mono text-white">{shortenAddress(row.wallet, 6)}</span>
+                    <span className="font-mono text-[var(--orange)]">
+                      +{formatAmount(row.amount, 1)} PUMP
+                    </span>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <RewardAnalytics history={market.history} />
+            )}
           </div>
         </div>
 
@@ -96,6 +115,20 @@ export function RewardTerminal({ market: initial }: { market: MarketSnapshot }) 
           ) : (
             <span>PUMP mint · To be confirmed</span>
           )}
+          {project.rewardVault ? (
+            <HouseButton className="px-3 text-[11px]" href={explorerAccountUrl(project.rewardVault)} target="_blank">
+              Reward vault
+            </HouseButton>
+          ) : null}
+          {market.lastDistribution?.signature ? (
+            <HouseButton
+              className="px-3 text-[11px]"
+              href={explorerTxUrl(market.lastDistribution.signature)}
+              target="_blank"
+            >
+              Last payout tx
+            </HouseButton>
+          ) : null}
         </div>
       </Card>
     </section>

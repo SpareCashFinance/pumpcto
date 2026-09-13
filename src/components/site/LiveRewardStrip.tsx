@@ -18,7 +18,7 @@ export function LiveRewardStrip({ market: initial }: { market: MarketSnapshot })
               ? market.status === "awaiting_launch" || market.status === "awaiting_index"
                 ? "Awaiting launch"
                 : "No verified total yet"
-              : market.totalDistributedSymbol
+              : "Recent vault payouts"
           }
         />
         <Stat
