@@ -38,7 +38,13 @@ function TapeSequence({ tape }: { tape: PriceTapeSnapshot }) {
       {[0, 1, 2].map((copy) => (
         <span key={copy} className="inline-flex items-center">
           <span className="px-5 tracking-[0.22em] text-[var(--orange)]">Live tape</span>
-          <QuoteCell quote={tape.btc} mark={<span className="text-[10px] font-black text-[var(--orange)]">P</span>} />
+          <QuoteCell
+            quote={tape.btc}
+            mark={
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src="/pill.svg" alt="" width={22} height={11} className="inline-block h-3 w-6 align-[-0.15em]" />
+            }
+          />
           <span className="text-[var(--stone)]">•</span>
           <QuoteCell quote={tape.jrock} mark={<BrandMark size={16} />} />
           <span className="px-5 text-[var(--stone)]">•</span>
