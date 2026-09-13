@@ -722,6 +722,12 @@ a {
   }
 }
 
+@keyframes border-beam-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes bitcoin-fall {
   0% {
     transform: translate3d(0, -8vh, 0) rotate(0deg);

@@ -1,107 +1,69 @@
-"use client"
+"use client";
 
-import { motion, type MotionStyle, type Transition } from "motion/react"
-
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 interface BorderBeamProps {
-  /**
-   * The size of the border beam.
-   */
-  size?: number
-  /**
-   * The duration of the border beam.
-   */
-  duration?: number
-  /**
-   * The delay of the border beam.
-   */
-  delay?: number
-  /**
-   * The color of the border beam from.
-   */
-  colorFrom?: string
-  /**
-   * The color of the border beam to.
-   */
-  colorTo?: string
-  /**
-   * The motion transition of the border beam.
-   */
-  transition?: Transition
-  /**
-   * The class name of the border beam.
-   */
-  className?: string
-  /**
-   * The style of the border beam.
-   */
-  style?: React.CSSProperties
-  /**
-   * Whether to reverse the animation direction.
-   */
-  reverse?: boolean
-  /**
-   * The initial offset position (0-100).
-   */
-  initialOffset?: number
-  /**
-   * The border width of the beam.
-   */
-  borderWidth?: number
+  size?: number;
+  duration?: number;
+  delay?: number;
+  colorFrom?: string;
+  colorTo?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  reverse?: boolean;
+  initialOffset?: number;
+  borderWidth?: number;
 }
 
 export const BorderBeam = ({
   className,
-  size = 50,
   delay = 0,
   duration = 6,
-  colorFrom = "#ffaa40",
-  colorTo = "#9c40ff",
-  transition,
+  colorFrom = "#86efac",
+  colorTo = "#4ade80",
   style,
   reverse = false,
-  initialOffset = 0,
   borderWidth = 1,
 }: BorderBeamProps) => {
+  // #region agent log
+  fetch("http://127.0.0.1:7447/ingest/7261716d-045c-4378-bc38-b41af16803cc", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "f3f691" },
+    body: JSON.stringify({
+      sessionId: "f3f691",
+      runId: "post-fix",
+      hypothesisId: "C",
+      location: "border-beam.tsx:mount",
+      message: "css border beam mounted",
+      data: { duration, reverse },
+      timestamp: Date.now(),
+    }),
+  }).catch(() => {});
+  // #endregion
+
   return (
     <div
-      className="pointer-events-none absolute inset-0 rounded-[inherit] border-(length:--border-beam-width) border-transparent mask-[linear-gradient(transparent,transparent),linear-gradient(#000,#000)] mask-intersect [mask-clip:padding-box,border-box]"
+      className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit] border-transparent mask-[linear-gradient(#000,#000),linear-gradient(#000,#000)] [mask-clip:padding-box,border-box] [mask-composite:exclude]"
       style={
         {
-          "--border-beam-width": `${borderWidth}px`,
+          borderWidth,
         } as React.CSSProperties
       }
+      aria-hidden
     >
-      <motion.div
-        className={cn(
-          "absolute aspect-square",
-          "bg-linear-to-l from-(--color-from) via-(--color-to) to-transparent",
-          className
-        )}
-        style={
-          {
-            width: size,
-            offsetPath: `rect(0 auto auto 0 round ${size}px)`,
-            "--color-from": colorFrom,
-            "--color-to": colorTo,
-            ...style,
-          } as MotionStyle
-        }
-        initial={{ offsetDistance: `${initialOffset}%` }}
-        animate={{
-          offsetDistance: reverse
-            ? [`${100 - initialOffset}%`, `${-initialOffset}%`]
-            : [`${initialOffset}%`, `${100 + initialOffset}%`],
-        }}
-        transition={{
-          repeat: Infinity,
-          ease: "linear",
-          duration,
-          delay: -delay,
-          ...transition,
+      <div
+        className={cn("absolute inset-[-55%]", className)}
+        style={{
+          background: `conic-gradient(from 180deg, transparent 0 70%, ${colorFrom} 80%, ${colorTo} 88%, transparent 96%)`,
+          animationName: "border-beam-spin",
+          animationDuration: `${Math.max(1, duration)}s`,
+          animationTimingFunction: "linear",
+          animationIterationCount: "infinite",
+          animationDirection: reverse ? "reverse" : "normal",
+          animationDelay: `-${Math.max(0, delay)}s`,
+          ...style,
         }}
       />
     </div>
-  )
-}
+  );
+};
