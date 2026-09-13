@@ -11,6 +11,21 @@ export function TapeChart({ history }: { history: RewardEvent[] }) {
     const node = host.current;
     if (!node) return;
 
+    // #region agent log
+    fetch("http://127.0.0.1:7447/ingest/7261716d-045c-4378-bc38-b41af16803cc", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "f3f691" },
+      body: JSON.stringify({
+        sessionId: "f3f691",
+        runId: "pre-fix",
+        hypothesisId: "D",
+        location: "TapeChart.tsx:createChart",
+        message: "creating lightweight chart",
+        data: { width: node.clientWidth, history: history.length },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion
     const chart = createChart(node, {
       height: 220,
       layout: {
