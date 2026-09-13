@@ -26,17 +26,17 @@ export default async function Image() {
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", width: 640 }}>
-          <div style={{ fontSize: 20, letterSpacing: 6, color: theme.accent }}>
-            {project.ticker} · CTO · SOLANA · PUMP.FUN
+          <div style={{ display: "flex", fontSize: 20, letterSpacing: 6, color: theme.accent }}>
+            {`${project.ticker} · CTO · SOLANA · PUMP.FUN`}
           </div>
-          <div style={{ fontSize: 72, fontWeight: 800, lineHeight: 0.95, marginTop: 18 }}>
+          <div style={{ display: "flex", fontSize: 72, fontWeight: 800, lineHeight: 0.95, marginTop: 18 }}>
             COMMUNITY TAKEOVER
           </div>
-          <div style={{ fontSize: 34, color: theme.accent, marginTop: 16 }}>
-            {project.coreLine}
+          <div style={{ display: "flex", fontSize: 34, color: theme.accent, marginTop: 16 }}>
+            {`${project.coreLine}`}
           </div>
-          <div style={{ fontSize: 22, color: theme.cream, marginTop: 28 }}>
-            {project.quote}
+          <div style={{ display: "flex", fontSize: 22, color: theme.cream, marginTop: 28 }}>
+            {`${project.quote}`}
           </div>
         </div>
         <div
